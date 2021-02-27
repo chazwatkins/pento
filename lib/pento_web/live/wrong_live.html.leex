@@ -1,0 +1,14 @@
+<h1>Your score: <%= @score %></h1>
+<h2>
+    <%= @message %>
+</h2>
+
+<%= if !@guess_correct do %>
+<h2>
+    <%= for n <- @answer_range do %>
+    <a href="#" phx-click="guess" phx-value-number="<%= n %>"><%= n %></a>
+    <% end %>
+</h2>
+<% else %>
+<a href="#" phx-click="reset">Play again?</a>
+<% end %>
