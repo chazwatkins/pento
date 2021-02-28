@@ -8,7 +8,13 @@
     <%= for n <- @answer_range do %>
     <a href="#" phx-click="guess" phx-value-number="<%= n %>"><%= n %></a>
     <% end %>
+    <% else %>
+    <a href="#" phx-click="continue">Keep going</a>
+    <br>
+    <a href="#" phx-click="reset">Start over</a>
+    <% end %>
 </h2>
-<% else %>
-<a href="#" phx-click="reset">Play again?</a>
-<% end %>
+<pre>
+<%= @user.email %>
+<%= @session_id %>
+</pre>

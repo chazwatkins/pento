@@ -3,7 +3,13 @@ defmodule PentoWeb.WrongLive do
 
   @answer_range 1..10
 
-  def mount(_params, _session, socket) do
+  def mount(_params, session, socket) do
+    socket =
+      socket
+      |> assign_defaults()
+      |> assign(user: Pento.Accounts.get_user_by_session_token(session["user_token"]))
+      |> assign(session_id: session["live_socket_id"])
+
     {:ok, assign_defaults(socket)}
   end
 
@@ -13,6 +19,15 @@ defmodule PentoWeb.WrongLive do
       |> check_guess(guess)
       |> generate_message(guess)
       |> calculate_score()
+
+    {:noreply, socket}
+  end
+
+  def handle_event("continue", _params, socket) do
+    socket =
+      socket
+      |> assign_defaults()
+      |> assign(score: socket.assigns.score)
 
     {:noreply, socket}
   end
