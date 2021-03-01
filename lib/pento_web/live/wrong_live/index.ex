@@ -1,4 +1,4 @@
-defmodule PentoWeb.WrongLive do
+defmodule PentoWeb.WrongLive.Index do
   use PentoWeb, :live_view
 
   @answer_range 1..10
