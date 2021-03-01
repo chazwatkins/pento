@@ -10,6 +10,8 @@ use Mix.Config
 config :pento,
   ecto_repos: [Pento.Repo]
 
+config :pento, Pento.Repo, migration_primary_key: [type: :uuid]
+
 # Configures the endpoint
 config :pento, PentoWeb.Endpoint,
   url: [host: "localhost"],

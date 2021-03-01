@@ -1,5 +1,5 @@
 defmodule Pento.Catalog.Product do
-  use Ecto.Schema
+  use Pento.Schema
   import Ecto.Changeset
 
   schema "products" do
