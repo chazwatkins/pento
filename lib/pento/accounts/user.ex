@@ -1,5 +1,5 @@
 defmodule Pento.Accounts.User do
-  use Ecto.Schema
+  use Pento.Schema
   import Ecto.Changeset
 
   @derive {Inspect, except: [:password]}

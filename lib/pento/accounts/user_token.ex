@@ -1,5 +1,5 @@
 defmodule Pento.Accounts.UserToken do
-  use Ecto.Schema
+  use Pento.Schema
   import Ecto.Query
 
   @hash_algorithm :sha256
@@ -134,6 +134,7 @@ defmodule Pento.Accounts.UserToken do
   end
 
   def user_and_contexts_query(user, [_ | _] = contexts) do
-    from t in Pento.Accounts.UserToken, where: t.user_id == ^user.id and t.context in ^contexts
+    from t in Pento.Accounts.UserToken,
+      where: t.user_id == ^user.id and t.context in ^contexts
   end
 end
