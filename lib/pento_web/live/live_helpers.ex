@@ -1,6 +1,8 @@
 defmodule PentoWeb.LiveHelpers do
   import Phoenix.LiveView.Helpers
 
+  use Phoenix.HTML
+
   @doc """
   Renders a component inside the `PentoWeb.ModalComponent` component.
 
@@ -20,4 +22,8 @@ defmodule PentoWeb.LiveHelpers do
     modal_opts = [id: :modal, return_to: path, component: component, opts: opts]
     live_component(socket, PentoWeb.ModalComponent, modal_opts)
   end
+
+  def error_to_string(:too_large), do: "Too large"
+  def error_to_string(:too_many_files), do: "You have selected too many files"
+  def error_to_string(:not_accepted), do: "You have selected an unacceptable file type"
 end
